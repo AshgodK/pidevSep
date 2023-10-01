@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Evennement index
+{% endblock %}
+
+{% block body %}
+  <h1>
+    Evennement index
+  </h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Titre
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          DateDebut
+        </th>
+        <th>
+          DateFin
+        </th>
+        <th>
+          adresse
+        </th>
+        <th>
+          Eventimg
+        </th>
+        <th>
+          NbrPasse
+        </th>
+        <th>
+          prix
+        </th>
+        <th>
+          actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for evennement in evennements %}
+        <tr>
+          <td>
+            {{ evennement.id }}
+          </td>
+          <td>
+            {{ evennement.titre }}
+          </td>
+          <td>
+            {{ evennement.description }}
+          </td>
+          <td>
+            {{ evennement.dateDebut
+              ? evennement.dateDebut|date('Y-m-d H:i:s')
+              : '' }}
+          </td>
+          <td>
+            {{ evennement.dateFin
+              ? evennement.dateFin|date('Y-m-d H:i:s')
+              : '' }}
+          </td>
+          <td>
+            {{ evennement.adresse }}
+          </td>
+          <td>
+            {{ evennement.eventimg }}
+          </td>
+          <td>
+            {{ evennement.nbrP }}
+          </td>
+          <td>
+            {{ evennement.prix }}
+          </td>
+          <td>
+            <a href="{{
+              path(
+                'app_evennement_show',
+                {
+                  id: evennement.id
+                }
+              )
+              }}">
+              show
+            </a>
+            <a href="{{
+              path(
+                'app_evennement_edit',
+                {
+                  id: evennement.id
+                }
+              )
+              }}">
+              edit
+            </a>
+          </td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="9">
+            no records found
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="pagination">
+    {{ knp_pagination_render(evennements) }}
+  </div>
+
+  <a href="{{ path('app_evennement_new') }}">Create new</a>
+{% endblock %}

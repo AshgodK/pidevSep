@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="756.0" prefWidth="1136.0" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EventCategController">
+   <children>
+      <ImageView fitHeight="756.0" fitWidth="1136.0">
+         <image>
+            <Image url="@images/19366.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="titre" layoutX="207.0" layoutY="170.0" promptText="titre" />
+      <TextArea fx:id="description" layoutX="182.0" layoutY="251.0" prefHeight="200.0" prefWidth="200.0" promptText="description" />
+      <Label layoutX="53.0" layoutY="174.0" text="titre" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font></Label>
+      <Label layoutX="51.0" layoutY="342.0" text="description:" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font></Label>
+      <TableView fx:id="tableViewEvCtg" layoutX="459.0" layoutY="170.0" prefHeight="237.0" prefWidth="542.0" stylesheets="@../../build/tableview.css">
+        <columns>
+          <TableColumn fx:id="id_cat_event" prefWidth="75.0" text="ID" visible="false" />
+          <TableColumn fx:id="titre_cat_event" prefWidth="243.99990844726562" text="Titre" />
+            <TableColumn fx:id="description_cat_event" prefWidth="298.4000244140625" text="Description" />
+        </columns>
+      </TableView>
+      <Button id="shiny" layoutX="182.0" layoutY="468.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="42.0" prefWidth="90.0" stylesheets="@../../build/stylesheet.css" text="Ajouter" />
+      <Button id="shiny" layoutX="282.0" layoutY="468.0" mnemonicParsing="false" onAction="#update" prefHeight="41.0" prefWidth="98.0" stylesheets="@../../build/stylesheet.css" text="Modifier" />
+      <Button id="green" layoutX="459.0" layoutY="423.0" mnemonicParsing="false" onAction="#AfficherCateg" prefHeight="26.0" prefWidth="82.0" stylesheets="@../../build/stylesheet.css" text="Refresh" />
+      <Button id="red" layoutX="563.0" layoutY="424.0" mnemonicParsing="false" onAction="#del" prefHeight="26.0" prefWidth="82.0" stylesheets="@../../build/stylesheet.css" text="Supprimer" />
+      <Button id="but" fx:id="goToEvs" layoutX="929.0" layoutY="672.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="71.0" stylesheets="@../../build/stylesheet.css" text="Events" />
+   </children>
+</AnchorPane>
